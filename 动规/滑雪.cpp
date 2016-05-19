@@ -28,8 +28,8 @@ int main(){
         for(int j=0;j<4;++j){
             tmp.x=points[i].x+dir[j][0],tmp.y=points[i].y+dir[j][1];
             if(tmp.x>=0&&tmp.x<R&&tmp.y>=0&&tmp.y<C&&binary_search(points,points+i,tmp)
-               &&area[points[i].x+dir[j][0]][points[i].y+dir[j][1]]<area[points[i].x][points[i].y])
-                l=l>ans[points[i].x+dir[j][0]][points[i].y+dir[j][1]]?l:ans[points[i].x+dir[j][0]][points[i].y+dir[j][1]];
+               &&area[tmp.x][tmp.y]<area[points[i].x][points[i].y])
+                l=max(l,ans[tmp.x][tmp.y]);
         }
         ans[points[i].x][points[i].y]=l+1;
     }
